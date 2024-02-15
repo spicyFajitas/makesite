@@ -8,6 +8,8 @@
 LOG_DIR="/home/adam/log"
 VENV_DIR="/home/adam/adfulton-venv"
 MAKESITE_DIR="/home/adam/makesite"
+OUTPUT_DIR="/home/adam/makesite/_site"
+PUBLIC_HTML="home/adam/public_html"
 
 # Function to display error and exit
 display_error_and_exit() {
@@ -49,6 +51,10 @@ deactivate >> "$LOG_DIR/website_update.log" 2>&1 || display_error_and_exit "Fail
 
 echo "Website update completed successfully" >> "$LOG_DIR/website_update.log"
 
+
+# Copy output files from _site output to public_html files directory
+echo "Copying output files to public_html folder"
+cp -r "$OUTPUT_DIR/*" "public_html" 2>&1 || display_error_and_exit "Failed to copy files from _site output to public_html"
+
 # Echo current date stamp to log file
 echo "$(date +'%Y-%m-%d %H:%M:%S') - Script completed" >> "$LOG_DIR/website_update.log"
-
