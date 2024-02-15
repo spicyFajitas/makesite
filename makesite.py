@@ -174,10 +174,10 @@ def main():
 
     # Default parameters.
     params = {
-        'base_path': '',
+        'base_path': 'https://shell.lug.mtu.edu/~adam',
         'subtitle': 'Lorem Ipsum',
         'author': 'Admin',
-        'site_url': 'http://localhost:8000',
+        'site_url': '',
         'current_year': datetime.datetime.now().year
     }
 
