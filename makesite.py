@@ -198,7 +198,7 @@ def main():
     list_layout = render(page_layout, content=list_layout)
 
     # Create site pages.
-    make_pages('content/_index.html', '_site/index.html',
+    make_pages('content/_index.md', '_site/index.html',
                page_layout, **params)
     make_pages('content/[!_]*.html', '_site/{{ slug }}/index.html',
                page_layout, **params)
@@ -207,7 +207,7 @@ def main():
     blog_posts = make_pages('content/blog/*.md',
                             '_site/blog/{{ slug }}/index.html',
                             post_layout, blog='blog', **params)
-    news_posts = make_pages('content/news/*.html',
+    news_posts = make_pages('content/news/*.md',
                             '_site/news/{{ slug }}/index.html',
                             post_layout, blog='news', **params)
 
