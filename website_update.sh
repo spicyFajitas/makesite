@@ -51,8 +51,15 @@ deactivate >> "$LOG_DIR/website_update.log" 2>&1 || display_error_and_exit "Fail
 
 echo "Website update completed successfully" >> "$LOG_DIR/website_update.log"
 
-echo "Removing contents of public_html folder" >> "$LOG_DIR/website_update.log"
-rm -r "$PUBLIC_HTML/"* 2>&1 || display_error_and_exit "Failed to copy files from _site output to public_html"
+# Check if there are files in the public_html directory
+if [ "$(ls -A $PUBLIC_HTML)" ]; then
+    # If there are files, remove them
+    echo "Removing contents of public_html folder" >> "$LOG_DIR/website_update.log"
+    rm -r "$PUBLIC_HTML/"* 2>&1 || display_error_and_exit "Failed to remove files from public_html"
+else
+    # If there are no files, just log the information
+    echo "No files found in public_html folder, skipping removal step" >> "$LOG_DIR/website_update.log"
+fi
 
 # Copy output files from _site output to public_html files directory
 echo "Copying output files to public_html folder" >> "$LOG_DIR/website_update.log"
