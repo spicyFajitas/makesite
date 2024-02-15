@@ -51,6 +51,8 @@ deactivate >> "$LOG_DIR/website_update.log" 2>&1 || display_error_and_exit "Fail
 
 echo "Website update completed successfully" >> "$LOG_DIR/website_update.log"
 
+echo "Removing contents of public_html folder" >> "$LOG_DIR/website_update.log"
+rm -r "$PUBLIC_HTML/"* 2>&1 || display_error_and_exit "Failed to copy files from _site output to public_html"
 
 # Copy output files from _site output to public_html files directory
 echo "Copying output files to public_html folder" >> "$LOG_DIR/website_update.log"
