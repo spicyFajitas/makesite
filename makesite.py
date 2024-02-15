@@ -175,7 +175,7 @@ def main():
     # Default parameters.
     params = {
         'base_path': 'https://shell.lug.mtu.edu/~adam',
-        'subtitle': 'spicyFajitas',
+        'subtitle': '',
         'author': 'spicyFajitas',
         'site_url': '',
         'current_year': datetime.datetime.now().year
