@@ -1,4 +1,5 @@
 <!-- title: Home Page -->
+<!-- render: yes -->
 
 # Hello
 
