@@ -1,11 +1,5 @@
 <!-- title: First Blog Post -->
 
-## Test Header 2
+# Test Header 1
 
-This is a new section!
-
-## Adam 
-
-Test Test
-
-Kenz
+My first blog post is active!
