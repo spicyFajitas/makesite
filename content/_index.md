@@ -1,4 +1,5 @@
-<!-- title: Home Page -->
+<!-- title: Home -->
+<!-- subtitle: spicyFajitas -->
 
 # Hello
 
