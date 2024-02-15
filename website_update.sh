@@ -54,7 +54,7 @@ echo "Website update completed successfully" >> "$LOG_DIR/website_update.log"
 
 # Copy output files from _site output to public_html files directory
 echo "Copying output files to public_html folder" >> "$LOG_DIR/website_update.log"
-cp -r "$OUTPUT_DIR/*" "$PUBLIC_HTML/" 2>&1 || display_error_and_exit "Failed to copy files from _site output to public_html"
+cp -r "$OUTPUT_DIR*" "$PUBLIC_HTML" 2>&1 || display_error_and_exit "Failed to copy files from _site output to public_html"
 
 # Echo current date stamp to log file
 echo "$(date +'%Y-%m-%d %H:%M:%S') - Script completed" >> "$LOG_DIR/website_update.log"
