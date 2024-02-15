@@ -1,6 +1,5 @@
 <!-- title: About -->
-<h1>About</h1>
-<p>
+
 Quisque quam nisl, egestas nec convallis vitae, fringilla nec mauris.
 Sed et cursus lacus, a pharetra ex. Pellentesque rhoncus malesuada elit
 at sodales. In ut elit lectus. Phasellus et hendrerit odio, ac hendrerit
@@ -10,8 +9,7 @@ eu, pharetra sit amet nunc. Integer suscipit suscipit dapibus.
 Suspendisse vulputate sed mauris eget tempus. Etiam rhoncus, leo nec
 cursus elementum, massa lorem fermentum nisi, non convallis nisl dolor
 vel ipsum.
-</p>
-<p>
+
 Aliquam imperdiet vel purus sed facilisis. Mauris condimentum vel nulla
 ac tempor. In non venenatis arcu. Nam in sapien purus. Suspendisse
 faucibus, erat et fringilla vestibulum, ligula nisi porta odio, ut
@@ -20,4 +18,3 @@ nisl, vehicula sed justo sed, volutpat bibendum purus. Phasellus luctus
 fringilla augue ac sodales. Aenean ac nisi sit amet neque pulvinar
 tincidunt ut nec ipsum. Aliquam purus tellus, dignissim a augue
 placerat, aliquet semper turpis. Fusce id lacinia quam, vel porta quam.
-</p>

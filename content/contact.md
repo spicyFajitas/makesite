@@ -1,6 +1,5 @@
 <!-- title: Contact -->
-<h1>Contact</h1>
-<p>
+
 In hac habitasse platea dictumst. Suspendisse purus leo, laoreet ac
 scelerisque vitae, gravida vitae turpis. Etiam lacinia justo in pharetra
 tincidunt. Donec id mi in elit euismod feugiat. Fusce eget velit nec
@@ -10,12 +9,10 @@ a. Proin ut magna eget nunc sagittis sodales ac suscipit dolor.
 Vestibulum sit amet velit nunc. Nam euismod fermentum neque ac
 facilisis. Phasellus imperdiet arcu a lorem pulvinar accumsan. Sed
 maximus neque tristique, sollicitudin risus sed, interdum enim.
-</p>
-<p>
+
 Curabitur vel augue mattis, blandit libero rhoncus, fringilla augue.
 Aenean condimentum ex justo. In hac habitasse platea dictumst. Etiam
 ullamcorper finibus enim, nec cursus dui tristique nec. Phasellus et
 tortor libero. Vivamus viverra euismod pulvinar. Fusce maximus, ante
 quis lobortis facilisis, lectus mi consequat purus, sed vestibulum ipsum
 mi sit amet dui.
-</p>
