@@ -4,6 +4,12 @@
 # Script: website_update.sh
 # Purpose: Updates web server directory contents based on rebuilding html files from markdown content
 
+# Instructions: to start this script for the first time, ensure it is located in the 
+#               home directory of the user it will be updating the shell page for.
+#               Also ensure the script is executable (`chmod +x website_update.sh`).
+#               Then run the script with `./website_update.sh` and it will create the
+#               necessaray automations.
+
 # Define paths
 LOG_DIR="/home/adam/log"
 VENV_DIR="/home/adam/adfulton-venv"
