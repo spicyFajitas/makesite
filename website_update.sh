@@ -8,7 +8,7 @@
 #               home directory of the user it will be updating the shell page for.
 #               Also ensure the script is executable (`chmod +x website_update.sh`).
 #               Then run the script with `./website_update.sh` and it will create the
-#               necessaray automations.
+#               necessary automation.
 
 # Define paths
 LOG_DIR="/home/adam/log"
