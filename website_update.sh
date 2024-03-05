@@ -56,7 +56,7 @@ fi
 
 # Compile html files from markdown
 echo "Compiling html website files from markdown files" >> "$LOG_DIR/website_update.log"
-python3 makesite.py >> "$LOG_DIR/website_update.log" 2>&1 || display_error_and_exit "Failed to compile HTML files"
+cd $MAKESITE_DIR; python3 makesite.py >> "$LOG_DIR/website_update.log" 2>&1 || display_error_and_exit "Failed to compile HTML files"
 
 # Deactivate venv
 echo "Deactivating venv" >> "$LOG_DIR/website_update.log"
