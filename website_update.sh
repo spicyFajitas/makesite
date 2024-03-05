@@ -17,13 +17,13 @@ display_error_and_exit() {
     exit 1
 }
 
-# Echo current date stamp to log file
-echo -e "\n\n\n\n\n$(date +'%Y-%m-%d %H:%M:%S') - Script started" >> "$LOG_DIR/website_update.log"
-
 # Check if log directory exists, if not, create it
 if [ ! -d "$LOG_DIR" ]; then
     mkdir -p "$LOG_DIR" || display_error_and_exit "Failed to create log directory"
 fi
+
+# Echo current date stamp to log file
+echo -e "\n\n\n\n\n$(date +'%Y-%m-%d %H:%M:%S') - Script started" >> "$LOG_DIR/website_update.log"
 
 # Check if venv directory exists, if not, create it
 if [ ! -d "$VENV_DIR" ]; then
