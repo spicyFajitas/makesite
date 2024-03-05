@@ -83,9 +83,9 @@ echo "Copying script to home directory root" >> "$LOG_DIR/website_update.log"
 cp "$0" "/home/adam/website_update.sh" 2>&1 || display_error_and_exit "Failed to copy script to home directory root"
 
 # Check if crontab is up to date
-if ! crontab -l | grep -q "website_update.sh"; then
+if ! crontab -l | grep -q "makesite/website_update.sh"; then
     echo "Updating crontab to run hourly updates" >> "$LOG_DIR/website_update.log"
-    (crontab -l 2>/dev/null; echo "0 * * * * /home/adam/website_update.sh") | crontab - 2>&1 || display_error_and_exit "Failed to update crontab"
+    (crontab -l 2>/dev/null; echo "0 * * * * /home/adam/makesite/website_update.sh") | crontab - 2>&1 || display_error_and_exit "Failed to update crontab"
 else
     echo "Crontab already up to date" >> "$LOG_DIR/website_update.log"
 fi
