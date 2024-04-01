@@ -1,8 +1,6 @@
 <!-- title: No Minecraft for the Guest Network -->
 <!-- subtitle: Docker Networking Issues -->
 
-# 2024-04-01 No Minecraft for the Guest Network
-
 ## Issue
 
 The initial issue was discovered by my roommate when he could not connect to my local Minecraft server. In my apartment, I have my server network that I only allow myself on, and I have my guest network, which all roommates, guests, and IoT devices get put on. The issue was very strange because I could connect just fine from my server network, and friends outside of my network could connect fine via the Dynamic DNS address I have set up (minecraft.domain.com).
