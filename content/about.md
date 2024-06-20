@@ -2,8 +2,6 @@
 
 # About
 
-More info to come soon!
-
 Welcome to my personal website hosted on Michigan Technological University's Linux Users Group Shell Server! (what a mouthful) 
 
 My early years of education were in network engineering, Windows server environments, and virtualization, but my work experience has introduced me to DevOps technologies and spurred my interest in becoming a DevOps Engineer. Through my personal hobbies, I've taught myself containerization and I'm trying to learn more about K8s, although this is a broad and daunting task.
