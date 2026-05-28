@@ -25,7 +25,9 @@ jobs:
         run: PYTHONPATH=build python -m unittest discover -s build/test -v
 
       - name: Build site
-        run: python3 build/makesite.py
+        run: |
+          echo '{"base_path": "https://shell.lug.mtu.edu/~adam", "site_url": "https://shell.lug.mtu.edu/~adam"}' > params.json
+          python3 build/makesite.py
 
       - name: Deploy to built branch
         env:

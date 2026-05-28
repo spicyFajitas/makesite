@@ -3,7 +3,7 @@
 
 # Hello
 
-Welcome to my MTU Shell Website!
+Welcome to my MTU Shell Blog!
 
 If you're looking for my documentation, check out my [documentation website](https://spicyfajitas.github.io/cookbooks/).
 
