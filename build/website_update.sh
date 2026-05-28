@@ -38,6 +38,11 @@ if [ -d "$PUBLIC_HTML/.git" ]; then
     git -C "$PUBLIC_HTML" pull origin built >> "$LOG_DIR/website_update.log" 2>&1 \
         || display_error_and_exit "Failed to pull latest site"
 else
+    if [ -d "$PUBLIC_HTML" ]; then
+        log "public_html exists but is not a git repo - clearing it for fresh clone"
+        rm -rf "$PUBLIC_HTML" >> "$LOG_DIR/website_update.log" 2>&1 \
+            || display_error_and_exit "Failed to clear public_html"
+    fi
     log "Cloning built branch into public_html"
     git clone --branch built --single-branch "$REPO_URL" "$PUBLIC_HTML" >> "$LOG_DIR/website_update.log" 2>&1 \
         || display_error_and_exit "Failed to clone built branch"
