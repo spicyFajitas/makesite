@@ -10,7 +10,6 @@ Personal blog built with [makesite.py](https://github.com/sunainapai/makesite).
 │   ├── about.md
 │   ├── contact.md
 │   ├── blog/       # Blog posts
-│   └── news/       # News posts
 └── build/              # Build system
     ├── makesite.py     # Static site generator
     ├── layout/         # HTML/XML templates
