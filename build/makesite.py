@@ -125,6 +125,15 @@ def render(template, **params):
                   template)
 
 
+def rewrite_links(html, base_path):
+    """Prepend base_path to root-relative href and src values in HTML."""
+    if not base_path:
+        return html
+    return re.sub(r'(href|src)="(/[^"]*)"',
+                  lambda m: '{}="{}{}"'.format(m.group(1), base_path, m.group(2)),
+                  html)
+
+
 def make_pages(src, dst, layout, **params):
     """Generate pages from page content."""
     items = []
@@ -139,6 +148,11 @@ def make_pages(src, dst, layout, **params):
             rendered_content = render(page_params['content'], **page_params)
             page_params['content'] = rendered_content
             content['content'] = rendered_content
+
+        # Rewrite root-relative links in content to include base_path.
+        rewritten = rewrite_links(page_params['content'], params.get('base_path', ''))
+        page_params['content'] = rewritten
+        content['content'] = rewritten
 
         items.append(content)
 
