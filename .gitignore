@@ -6,4 +6,5 @@ htmlcov
 *.sw?
 .DS_Store
 venv
+build/.venv
 params.json

@@ -32,21 +32,18 @@ Post content here...
 
 Push to `master` and GitHub Actions will build and deploy automatically.
 
-## Build locally
+## Local development
 
-```bash
-pip install commonmark
-python3 build/makesite.py
-```
+`make` manages a venv in `build/.venv` automatically — no manual `pip install` needed.
 
-The generated site is written to `_site/`.
+| Command      | What it does                                        |
+|--------------|-----------------------------------------------------|
+| `make build` | Build the site into `_site/`                        |
+| `make serve` | Build then serve at <http://localhost:8000>         |
+| `make test`  | Run the test suite                                  |
+| `make clean` | Remove `_site/` and compiled Python files           |
 
-## Run tests
-
-```bash
-pip install commonmark
-PYTHONPATH=build python -m unittest discover -s build/test -v
-```
+First run creates the venv and installs dependencies; subsequent runs skip that step.
 
 ## Deployment
 
