@@ -2,6 +2,8 @@ VENV   = build/.venv
 PYTHON = $(VENV)/bin/python3
 PIP    = $(VENV)/bin/pip
 
+.PHONY: build serve test clean
+
 $(VENV)/.installed:
 	python3 -m venv $(VENV)
 	$(PIP) install --quiet commonmark
@@ -18,8 +20,6 @@ test: $(VENV)/.installed
 	PYTHONPATH=build $(PYTHON) -m unittest discover -s build/test -v
 
 clean:
-	rm -rf _site
+	rm -rf _site build/.venv
 	find . -name "__pycache__" -exec rm -r {} +
 	find . -name "*.pyc" -exec rm {} +
-
-FORCE:

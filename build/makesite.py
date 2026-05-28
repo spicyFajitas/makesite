@@ -173,6 +173,8 @@ def main():
     if os.path.isdir('_site'):
         shutil.rmtree('_site')
     shutil.copytree(os.path.join(_SCRIPT_DIR, 'static'), '_site')
+    if os.path.isdir('images'):
+        shutil.copytree('images', os.path.join('_site', 'images'))
 
     # Default parameters.
     params = {

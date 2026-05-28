@@ -1,0 +1,5 @@
+# disable top level header requirement
+MD041: false
+
+# disable line length cap at 80 characters
+MD013: false

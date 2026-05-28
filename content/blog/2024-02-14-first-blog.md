@@ -1,5 +1,7 @@
-<!-- title: First Blog Post -->
+<!-- title: First Blog Post Title -->
+<!-- subtitle: First Blog Post Subtitle -->
+<!-- author: First Blog Post Author -->
 
-# Test Header 1
+# This is a Header 1
 
 My first blog post!
