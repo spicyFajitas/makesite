@@ -176,7 +176,7 @@ def main():
 
     # Default parameters.
     params = {
-        'base_path': '',
+        'base_path': 'https://shell.lug.mtu.edu/~adam',
         'subtitle': '',
         'author': 'spicyFajitas',
         'site_url': '',
