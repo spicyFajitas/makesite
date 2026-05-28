@@ -34,9 +34,11 @@ log "Script started"
 
 # Pull or clone the built branch into public_html
 if [ -d "$PUBLIC_HTML/.git" ]; then
-    log "Pulling latest built site into public_html"
-    git -C "$PUBLIC_HTML" pull origin built >> "$LOG_DIR/website_update.log" 2>&1 \
-        || display_error_and_exit "Failed to pull latest site"
+    log "Fetching latest built site into public_html"
+    git -C "$PUBLIC_HTML" fetch origin built >> "$LOG_DIR/website_update.log" 2>&1 \
+        || display_error_and_exit "Failed to fetch latest site"
+    git -C "$PUBLIC_HTML" reset --hard origin/built >> "$LOG_DIR/website_update.log" 2>&1 \
+        || display_error_and_exit "Failed to reset public_html to latest site"
 else
     if [ -d "$PUBLIC_HTML" ]; then
         log "public_html exists but is not a git repo - clearing it for fresh clone"
