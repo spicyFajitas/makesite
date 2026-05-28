@@ -35,6 +35,8 @@ import sys
 import json
 import datetime
 
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 def fread(filename):
     """Read file and close the file."""
@@ -170,7 +172,7 @@ def main():
     # Create a new _site directory from scratch.
     if os.path.isdir('_site'):
         shutil.rmtree('_site')
-    shutil.copytree('static', '_site')
+    shutil.copytree(os.path.join(_SCRIPT_DIR, 'static'), '_site')
 
     # Default parameters.
     params = {
@@ -186,12 +188,12 @@ def main():
         params.update(json.loads(fread('params.json')))
 
     # Load layouts.
-    page_layout = fread('layout/page.html')
-    post_layout = fread('layout/post.html')
-    list_layout = fread('layout/list.html')
-    item_layout = fread('layout/item.html')
-    feed_xml = fread('layout/feed.xml')
-    item_xml = fread('layout/item.xml')
+    page_layout = fread(os.path.join(_SCRIPT_DIR, 'layout/page.html'))
+    post_layout = fread(os.path.join(_SCRIPT_DIR, 'layout/post.html'))
+    list_layout = fread(os.path.join(_SCRIPT_DIR, 'layout/list.html'))
+    item_layout = fread(os.path.join(_SCRIPT_DIR, 'layout/item.html'))
+    feed_xml = fread(os.path.join(_SCRIPT_DIR, 'layout/feed.xml'))
+    item_xml = fread(os.path.join(_SCRIPT_DIR, 'layout/item.xml'))
 
     # Combine layouts to form final layouts.
     post_layout = render(page_layout, content=post_layout)
