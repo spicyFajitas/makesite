@@ -2,18 +2,19 @@ VENV   = build/.venv
 PYTHON = $(VENV)/bin/python3
 PIP    = $(VENV)/bin/pip
 
-$(VENV): FORCE
+$(VENV)/.installed:
 	python3 -m venv $(VENV)
 	$(PIP) install --quiet commonmark
+	touch $(VENV)/.installed
 
-build: $(VENV)
+build: $(VENV)/.installed
 	$(PYTHON) build/makesite.py
 
 serve: build
 	@echo "Serving at http://localhost:8000"
 	$(PYTHON) -m http.server --directory _site
 
-test: $(VENV)
+test: $(VENV)/.installed
 	PYTHONPATH=build $(PYTHON) -m unittest discover -s build/test -v
 
 clean:
