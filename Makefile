@@ -11,7 +11,7 @@ build: $(VENV)
 
 serve: build
 	@echo "Serving at http://localhost:8000"
-	cd _site && $(PYTHON) -m http.server
+	$(PYTHON) -m http.server --directory _site
 
 test: $(VENV)
 	PYTHONPATH=build $(PYTHON) -m unittest discover -s build/test -v
