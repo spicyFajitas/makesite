@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>No Minecraft for the Guest Network - Docker Networking Issues</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="https://shell.lug.mtu.edu/~adam/css/style.css">
+</head>
+
+<body id="no-minecraft-for-guest-network">
+
+<nav>
+<section>
+    <span class="home">
+        <a href="https://shell.lug.mtu.edu/~adam/">Home</a>
+    </span>
+    <span class="links">
+        <a href="https://shell.lug.mtu.edu/~adam/blog/">Blog</a>
+        <a href="https://shell.lug.mtu.edu/~adam/tags/">Tags</a>
+        <a href="https://shell.lug.mtu.edu/~adam/contact/">Contact</a>
+        <a href="https://shell.lug.mtu.edu/~adam/about/">About</a>
+    </span>
+</section>
+</nav>
+
+<main>
+<article>
+<h1><a href="https://shell.lug.mtu.edu/~adam/blog/no-minecraft-for-guest-network/">No Minecraft for the Guest Network</a></h1>
+<p class="meta">Published on 2024-04-01 by <b>spicyFajitas</b></p>
+<span class="tags"><a class="tag" href="https://shell.lug.mtu.edu/~adam/tags/networking/">networking</a><a class="tag" href="https://shell.lug.mtu.edu/~adam/tags/homelab/">homelab</a><a class="tag" href="https://shell.lug.mtu.edu/~adam/tags/docker/">docker</a></span>
+<h2>Issue</h2>
+<p>The initial issue was discovered by my roommate when he could not connect to my local Minecraft server. In my apartment, I have my server network that I only allow myself on, and I have my guest network, which all roommates, guests, and IoT devices get put on. The issue was very strange because I could connect just fine from my server network, and friends outside of my network could connect fine via the Dynamic DNS address I have set up (minecraft.domain.com).</p>
+<h2>Troubleshooting</h2>
+<p>I spent wayyy too much time troubleshooting the router and implementing configurations that either did nothing or had negative effects. I made a lot of static routes, traffic rules (allow rules), policy-based routes, messed with ad blocking, multicast DNS, DNS shielding, country restrictions, and VLAN rules. The country restrictions actually caused me issues with a tool that I use for a class that simplifies writing penetration testing reports.</p>
+<p>I finally was convinced it was not a router issue when I was running a <code>tcpdump</code> on the Docker VM and noticed traffic was reaching the server. This led me to do some searching for traffic not being able to be routed from different subnets/VLANs to Docker servers.</p>
+<h2>Networking</h2>
+<p>I found this <a href="https://www.reddit.com/r/docker/comments/154bsz7/comment/jssyw27/?context=8&amp;depth=9">reddit thread</a> that explained a similar issue, which led me to the <a href="https://docs.docker.com/network/drivers/bridge/#use-the-default-bridge-network">Docker docs</a> and I figured out the issue. Upon running <code>ip addr</code> on my Docker host (which showed many networks), I saw the bridge interface with the network of 192.168.0.1/20. I figured this was why my traffic was not being routed properly, and I figured a really easy fix would be to change the IP address scheme of my guest network. My final test was to run <code>ip link delete {{ name of docker bridge network interface }}</code> and I tested the Minecraft server, which finally connected.</p>
+<p>However, when checking my Uptime Kuma instance, I noticed that some containers were reporting as down. I went back to my Docker host and restarted the docker service with <code>systemctl restart docker</code>, which successfully recreated the bridge network. I believe this change came about as a result of my normal homelab experimentation and creating new services, as the containers I set up just a week ago were the only ones brought down by deleting the default bridge interface on the docker host.</p>
+<h2>Unifi changes</h2>
+<p>I wanted to isolate traffic from my main server network and my guest network, so I enabled traffic isolation in</p>
+<p><code>Settings &gt; {{ network name }} &gt; Isolate Network</code></p>
+<p>However, this caused the guest network to not be able to reach the server again. I created an allow rule in the firewall to allow traffic to reach the Minecraft server</p>
+<p><code>Settings &gt; Traffic and Firewall Rules &gt; Allow Minecraft</code></p>
+<pre><code class="language-markdown">- Action: Allow
+- Source: {{ guest network name }} 
+- Destination: IP address
+- {{ IP address and port of MC server }}
+- Schedule: Always
+</code></pre>
+<p>This resolved the issue while still keeping the rest of the server network separated.</p>
+<h2>TLDR</h2>
+<ul>
+<li>Guest network traffic not routable to Minecraft server</li>
+<li>Docker default network - 192.168.0.1/20</li>
+<li>Guest network - 192.168.1.1/24</li>
+<li>Guest network traffic reaching docker server, but not being routed back out to network
+<ul>
+<li>instead return traffic destined for Guest network being routed to Docker default bridge network interface</li>
+</ul>
+</li>
+<li>Resolved by changing Guest network to 192.168.231.1/24</li>
+</ul>
+
+</article>
+
+</main>
+
+<footer>
+<section>
+<p>&copy; 2026 spicyFajitas</p>
+<p>
+    <a href="https://github.com/spicyFajitas/makesite">GitHub</a>
+    <!-- <a href="https://www.example.com/">Example</a> -->
+</p>
+</section>
+</footer>
+
+</body>
+</html>

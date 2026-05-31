@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+
+<channel>
+<title>Blog</title>
+<link>https://shell.lug.mtu.edu/~adam/</link>
+<description>Grow with Technology</description>
+
+<item>
+<title>Talkeetna Knife Shop</title>
+<link>https://shell.lug.mtu.edu/~adam/blog/talkeetna-alaska/</link>
+<description>
+<![CDATA[
+<p>
+I mentioned during my last entry my buddy and I traveled to Alaska for vacation with our college friends. Well, two years ago only three&nbsp;<a href="https://shell.lug.mtu.edu/~adam/blog/talkeetna-alaska/">...</a>
+</p>
+<p><a href="https://shell.lug.mtu.edu/~adam/blog/talkeetna-alaska/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Spitefully Updating My Blog</title>
+<link>https://shell.lug.mtu.edu/~adam/blog/spitefully-updating-blog/</link>
+<description>
+<![CDATA[
+<p>
+This all came about when I saw my buddy working on some code on our flight to Alaska. We are on vacation currently with the&nbsp;<a href="https://shell.lug.mtu.edu/~adam/blog/spitefully-updating-blog/">...</a>
+</p>
+<p><a href="https://shell.lug.mtu.edu/~adam/blog/spitefully-updating-blog/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 27 May 2026 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>No Minecraft for the Guest Network</title>
+<link>https://shell.lug.mtu.edu/~adam/blog/no-minecraft-for-guest-network/</link>
+<description>
+<![CDATA[
+<p>
+Issue The initial issue was discovered by my roommate when he could not connect to my local Minecraft server. In my apartment, I have my&nbsp;<a href="https://shell.lug.mtu.edu/~adam/blog/no-minecraft-for-guest-network/">...</a>
+</p>
+<p><a href="https://shell.lug.mtu.edu/~adam/blog/no-minecraft-for-guest-network/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>First Blog Post Title</title>
+<link>https://shell.lug.mtu.edu/~adam/blog/first-blog/</link>
+<description>
+<![CDATA[
+<p>
+This is a Header 1 My first blog post!&nbsp;<a href="https://shell.lug.mtu.edu/~adam/blog/first-blog/">...</a>
+</p>
+<p><a href="https://shell.lug.mtu.edu/~adam/blog/first-blog/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 14 Feb 2024 00:00:00 +0000</pubDate>
+</item>
+
+
+</channel>
+</rss>
