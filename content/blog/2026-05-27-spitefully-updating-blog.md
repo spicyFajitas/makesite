@@ -27,3 +27,5 @@ Yeah I like that idea - writing about something non-homelab related. A lot can b
 For fun I've included a picture to forever capture the bleak state of the blog &darr;
 
 ![picture of bleak blog post list](/images/sad-blog.png)
+
+Edit: this post was written in the top bunk of the airbnb we are staying at in Talkeetna, Alaska. Everyone else but one is in bed, and all the lights are off as I type in the semi-darkness of the summer alaska everlasting twilight. I can feel the individual springs in the worn out mattress pressing up against my bodyweight. However, it's nice to have warm bed to sleep in, so I can't complain.
