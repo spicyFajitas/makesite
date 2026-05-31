@@ -1,5 +1,6 @@
 <!-- title: Spitefully Updating My Blog -->
 <!-- author: spicyFajitas -->
+<!-- tags: meta -->
 
 This all came about when I saw my buddy working on some code on our flight to Alaska. We are on vacation currently with the rest of our college friend group.
 

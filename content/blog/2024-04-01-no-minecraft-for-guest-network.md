@@ -1,5 +1,6 @@
 <!-- title: No Minecraft for the Guest Network -->
 <!-- subtitle: Docker Networking Issues -->
+<!-- tags: networking, homelab, docker -->
 
 ## Issue
 
