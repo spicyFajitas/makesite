@@ -123,6 +123,60 @@ div .more {
 }
 
 
+/* Tags */
+.tags {
+    display: block;
+    margin: 0.25em 0 0.5em;
+}
+
+a.tag {
+    display: inline-block;
+    margin-right: 0.35em;
+    padding: 0.15em 0.5em;
+    border-radius: 0.25em;
+    font-size: 0.75em;
+    font-weight: bold;
+    background: #e8e8e8;
+}
+
+a.tag:link, a.tag:visited {
+    color: #444444;
+    text-decoration: none;
+}
+
+a.tag:hover, a.tag:active {
+    background: #333333;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/* Tags index */
+.tags-index {
+    margin: 1em 0;
+}
+
+.tags-index a.tag {
+    font-size: 1em;
+    padding: 0.25em 0.65em;
+    margin: 0.25em 0.25em 0.25em 0;
+}
+
+.tag-count {
+    display: inline-block;
+    background: #bbbbbb;
+    color: #ffffff;
+    border-radius: 0.25em;
+    padding: 0 0.35em;
+    font-size: 0.8em;
+    margin-left: 0.2em;
+}
+
+a.tag:hover .tag-count, a.tag:active .tag-count {
+    background: #555555;
+}
+
+
 /* RSS */
 .rss {
     padding: 0.3em 0.35em;

@@ -25,7 +25,8 @@ Add markdown files to `content/blog/` or `content/news/`. File names follow the 
 
 ```markdown
 <!-- title: My Post Title -->
-<!-- subtitle: Optional subtitle -->
+<!-- subtitle: Optional Subtitle -->
+<!-- tags: Optional Tags -->
 
 Post content here...
 ```

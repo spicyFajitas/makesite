@@ -64,6 +64,21 @@ def truncate(text, words=25):
     return ' '.join(re.sub('(?s)<.*?>', ' ', text).split()[:words])
 
 
+def make_tag_slug(tag):
+    """Convert tag name to a URL-safe slug."""
+    return re.sub(r'[^a-z0-9]+', '-', tag.lower().strip()).strip('-')
+
+
+def render_tags(tags_str, base_path=''):
+    """Convert a comma-separated tags string to HTML links."""
+    if not tags_str or not tags_str.strip():
+        return ''
+    tags = [t.strip() for t in tags_str.split(',') if t.strip()]
+    links = ['<a class="tag" href="{}/tags/{}/">{}</a>'.format(
+        base_path, make_tag_slug(t), t) for t in tags]
+    return '<span class="tags">' + ''.join(links) + '</span>'
+
+
 def read_headers(text):
     """Parse headers in text and yield (key, value, end-index) tuples."""
     for match in re.finditer(r'\s*<!--\s*(.+?)\s*:\s*(.+?)\s*-->\s*|.+', text):
@@ -141,6 +156,12 @@ def make_pages(src, dst, layout, **params):
     for src_path in glob.glob(src):
         content = read_content(src_path)
 
+        # Process tags: store list for grouping and render HTML links for templates.
+        raw_tags = content.get('tags', '')
+        tags_list = [t.strip() for t in raw_tags.split(',') if t.strip()] if raw_tags else []
+        content['tags_list'] = tags_list
+        content['tags'] = render_tags(raw_tags, params.get('base_path', ''))
+
         page_params = dict(params, **content)
 
         # Populate placeholders in content if content-rendering is enabled.
@@ -163,6 +184,40 @@ def make_pages(src, dst, layout, **params):
         fwrite(dst_path, output)
 
     return sorted(items, key=lambda x: x['date'], reverse=True)
+
+
+def make_tags_index(tag_map, dst, layout, **params):
+    """Generate an index page listing all tags with post counts."""
+    base_path = params.get('base_path', '')
+    items = []
+    for slug in sorted(tag_map.keys()):
+        info = tag_map[slug]
+        count = len(info['posts'])
+        items.append(
+            '<a class="tag" href="{}/tags/{}/"> {}'
+            ' <span class="tag-count">{}</span></a>'.format(
+                base_path, slug, info['name'], count))
+    content = '<h1>Tags</h1>\n<div class="tags-index">\n{}\n</div>'.format('\n'.join(items))
+    output = render(layout, content=content, title='Tags', slug='tags', **params)
+    log('Rendering tags index => {} ...', dst)
+    fwrite(dst, output)
+
+
+def make_tag_pages(posts, dst, list_layout, item_layout, **params):
+    """Generate a filtered list page for each tag found across all posts."""
+    tag_map = {}
+    for post in posts:
+        for tag in post.get('tags_list', []):
+            slug = make_tag_slug(tag)
+            if slug not in tag_map:
+                tag_map[slug] = {'name': tag, 'posts': []}
+            tag_map[slug]['posts'].append(post)
+
+    for tag_slug, info in tag_map.items():
+        make_list(info['posts'], dst, list_layout, item_layout,
+                  tag=tag_slug, title='Posts tagged "' + info['name'] + '"', **params)
+
+    return tag_map
 
 
 def make_list(posts, dst, list_layout, item_layout, **params):
@@ -232,6 +287,11 @@ def main():
     # Create blog list pages.
     make_list(blog_posts, '_site/blog/index.html',
               list_layout, item_layout, blog='blog', title='Blog', **params)
+
+    # Create tag pages and index.
+    tag_map = make_tag_pages(blog_posts, '_site/tags/{{ tag }}/index.html',
+                              list_layout, item_layout, blog='blog', **params)
+    make_tags_index(tag_map, '_site/tags/index.html', page_layout, **params)
     # make_list(news_posts, '_site/news/index.html',
     #           list_layout, item_layout, blog='news', title='News', **params)
 
