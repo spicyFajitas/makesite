@@ -14,13 +14,15 @@ I ended up purchasing a Serbian chef knife, a generic chef knife, and a smaller 
 
 The shop owner's name is Jeff Owens, and he stamps the knives with his logo - an O with a J inside of it - and the location - Talkeetna, AK.
 
-<!-- To Do - add photo of logos -->
+![stamped-knife](/images/talkeetna-stamp.JPG)
 
 ## Knife Composition
 
 From their [website](https://alaskanmountaintraders.company.site/), the knife blades are made of 5160 high carbon spring steel, and the handles are made from either moose bone or an exotic hardwood. My knives' handles are made from moose bones and cocobolo wood.
 
-<!-- To Do - add photo of my knives -->
+![my-two-smaller-knives](/images/talkeetna-knives-mine.JPG)
+
+<!-- To Do - add photo of my big knife -->
 
 ## Knife Maintenance
 
@@ -30,4 +32,10 @@ When wanting to sharpen the knives, I can use any normal knife sharpening proces
 
 ![Knives](/images/talkeetna-knives-jeff-owens.JPG)
 
+Venison cut with generic chef knife:
+
+![venison-cut-with-knives](/images/venison.JPG)
+
 This post was written in the Anchorage, Alaska airport and while on the American Airlines flight from ANC (Anchorage) to ORD (Chicago).
+
+Edit 2026-06-09: add pictures of stamped knives, my two smaller knives, and venison
