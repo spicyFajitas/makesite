@@ -1,4 +1,4 @@
-<!-- title: 2023-11-08 State of the Homelab -->
+<!-- title: State of the Homelab -->
 <!-- tags: homelab -->
 
 # Overview
@@ -26,3 +26,5 @@ List:
 - (mostly) fully automate deployment of Docker host VM with Packer for VM templating, Terraform for VM deployment, and ansible for configuration deployment
 - trying to learn Kubernetes then really burnt out on Kubernetes
 - minecraft server led me to implement Netdata (don't remember why?)
+
+Edit: fixing title
