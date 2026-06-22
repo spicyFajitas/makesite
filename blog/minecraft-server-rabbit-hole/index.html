@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minecraft Server Rabbit Hole - </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="https://shell.lug.mtu.edu/~adam/css/style.css">
+</head>
+
+<body id="minecraft-server-rabbit-hole">
+
+<nav>
+<section>
+    <span class="home">
+        <a href="https://shell.lug.mtu.edu/~adam/">Home</a>
+    </span>
+    <span class="links">
+        <a href="https://shell.lug.mtu.edu/~adam/blog/">Blog</a>
+        <a href="https://shell.lug.mtu.edu/~adam/tags/">Tags</a>
+        <a href="https://shell.lug.mtu.edu/~adam/contact/">Contact</a>
+        <a href="https://shell.lug.mtu.edu/~adam/about/">About</a>
+    </span>
+</section>
+</nav>
+
+<main>
+<article>
+<h1><a href="https://shell.lug.mtu.edu/~adam/blog/minecraft-server-rabbit-hole/">Minecraft Server Rabbit Hole</a></h1>
+<p class="meta">Published on 2024-01-16 by <b>spicyFajitas</b></p>
+<span class="tags"><a class="tag" href="https://shell.lug.mtu.edu/~adam/tags/homelab/">homelab</a><a class="tag" href="https://shell.lug.mtu.edu/~adam/tags/docker/">docker</a></span>
+<h2>Overview</h2>
+<p>My big project lately has been running a minecraft server on Docker (itzg/minecraft-server docker image), and to be honest I have just as much fun administrating it as playing. The docker compose file is <a href="https://github.com/spicyFajitas/cookbooks/blob/master/ansible/roles/minecraft/templates/docker-compose.yml.j2">here</a> - it's in the corresponding ansible role.</p>
+<p>Looking through that is a bit of a rabbit hole - the TLDR is that I set up the minecraft server and set up dynamic DNS with cloudflare, then wanted to run backups (itzg/mc-backup docker image sidecar service), then wanted to get discord notifications for logins and logouts (<em>security</em> lol), and then the backups started filling the disk so I set up Netdata for monitoring things, and it's spiraling into another project where I configure Netdata monitoring and alerting on my major hosts.</p>
+<p>For the discord notifications, I forked and created <a href="https://github.com/spicyFajitas/minecraft-discord-webhook">my own container</a> because the notifications from the <a href="https://github.com/saadbruno/minecraft-discord-webhook">parent project</a> would only be embedded messages, which weren't showing text previews on my phone, so I'd have to manually open Discord every time I wanted to check instead of being able to read the notification. I had to learn building container images and pushing them to the GitHub Container Repository, so this has really spiraled into many offshoot projects.</p>
+
+</article>
+
+</main>
+
+<footer>
+<section>
+<p>&copy; 2026 spicyFajitas</p>
+<p>
+    <a href="https://github.com/spicyFajitas/makesite">GitHub</a>
+    <!-- <a href="https://www.example.com/">Example</a> -->
+</p>
+</section>
+</footer>
+
+</body>
+</html>
